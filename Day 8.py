@@ -21,12 +21,11 @@ def count(str1):
             digits += 1
         else:
             pass
-
-    print(letter)
-    print(digits)
+    return f"Letters : {letter}\n" \
+           f"Digits : {digits}"
 
 str1 = "Python 3.2"
-count(str1)
+print(count(str1))
 
 # 3. Write a Python program to convert month name to a number of days.
 
@@ -36,6 +35,8 @@ count(str1)
 # Input the name of month: February
 # Number of days: 28/29 days
 
+# Solution 1 : 
+
 print("List of months : January, February, March, April, May, June, July, August, September, October, November, December")
 month = input("Input the name of month : ")
 if month == "February":
@@ -44,5 +45,18 @@ elif month in ("January", "March", "May", "July", "August", "October", "December
     print("Number of days : 31 days")
 elif month in ("April", "June", "September", "November"):
     print("Number of days : 30 days")
+else:
+    print("Wrong month name")
+
+# Solution 2 :
+
+month_list = ['January', "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+print('List of months : ')
+print(month_list)
+days_list = ['31', '28/29', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31']
+dict1 = dict(zip(month_list, days_list))
+month_name = input("Input the name of a month : ")
+if month_name in dict1.keys():
+    print(f"Number of days : {dict1[month_name]} days")
 else:
     print("Wrong month name")
